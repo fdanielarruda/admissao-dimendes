@@ -22,15 +22,9 @@
          <i class="fas fa-fw fa-plus"></i>
          <span>Nova Tarefa</span></a>
    </li>
-
+   
 	<li class="nav-item">
-      <a class="nav-link" href="{{ route('task.index') }}">
-         <i class="fas fa-fw fa-user"></i>
-         <span>Perfil</span></a>
-   </li>
-
-	<li class="nav-item">
-      <a class="nav-link" href="{{ route('task.index') }}">
+      <a class="nav-link" href="{{ route('logout') }}">
          <i class="fas fa-fw fa-arrow-left"></i>
          <span>Sair</span></a>
    </li>

@@ -1,33 +1,39 @@
 <?php
 
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\{
+    TaskController,
+    AuthController
+};
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'auth'])->name('auth');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/store_user', [AuthController::class, 'store_user'])->name('store_user');
 
-Route::prefix('task')->controller(TaskController::class)->group(function () {
-    Route::get('/', 'index')->name('task.index');
+// MIDDLEWARE AUTH
+Route::middleware(['auth_test'])->group(function () {
     
-    // VIEW CREATE AND STORE
-    Route::get('/create', 'create')->name('task.create');
-    Route::post('/', 'store')->name('task.store');
+    // ROUTE OF LOGOUT
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // VIEW EDIT AND SAVE
-    Route::get('/{task}/edit', 'edit')->name('task.edit');
-    Route::put('/{task}', 'update')->name('task.update');
-
-    Route::get('/{task}/delete', 'delete')->name('task.delete');
+    // ROUTES OF TASKS
+    Route::prefix('task')->controller(TaskController::class)->group(function () {
+        
+        // LIST OF ALL TASKS
+        Route::get('/', 'index')->name('task.index');
+        
+        // VIEW CREATE AND STORE
+        Route::get('/create', 'create')->name('task.create');
+        Route::post('/', 'store')->name('task.store');
+    
+        // VIEW EDIT AND SAVE
+        Route::get('/{task}/edit', 'edit')->name('task.edit');
+        Route::put('/{task}', 'update')->name('task.update');
+    
+        // DELETE ONE TASK
+        Route::get('/{task}/delete', 'delete')->name('task.delete');
+    });
+    
 });

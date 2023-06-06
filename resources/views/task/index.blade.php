@@ -1,6 +1,6 @@
 @extends('template.layout')
 
-@section('title_page', 'Suas Tarefas')
+@section('title_page', 'Tarefas')
 
 @section('content')
    <div class="table-responsive">
