@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('task')->controller(TaskController::class)->group(function () {
+    Route::get('/', 'index')->name('task.index');
+    
+    // VIEW CREATE AND STORE
+    Route::get('/create', 'create')->name('task.create');
+    Route::post('/', 'store')->name('task.store');
+
+    // VIEW EDIT AND SAVE
+    Route::get('/{task}/edit', 'edit')->name('task.edit');
+    Route::put('/{task}', 'update')->name('task.update');
+
+    Route::get('/{task}/delete', 'delete')->name('task.delete');
+});
