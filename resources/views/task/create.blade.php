@@ -45,13 +45,13 @@
          @enderror
       </div>
 
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" class="btn btn-primary bg-primary">
          <i class="fas fa-fw fa-plus"></i>
          Salvar Tarefa
       </button>
 
 		<a class="btn btn-danger" href="{{ route('task.index') }}">
-         <i class="fas fa-fw fa-plus"></i>
+         <i class="fas fa-fw fa-times"></i>
          Cancelar
       </a>
    </form>

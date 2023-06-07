@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthTest
+class NotAuth
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class AuthTest
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check())
-            return redirect()->route('login');
+        if (Auth::check())
+            return redirect()->route('task.index');
 
         return $next($request);
     }

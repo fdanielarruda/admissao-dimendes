@@ -6,11 +6,14 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AuthController::class, 'index'])->name('login');
-Route::post('/login', [AuthController::class, 'auth'])->name('auth');
+// MIDDLEWARE FOR ROUTES THAT DO NOT NEED TO BE AUTHENTICATED
+Route::middleware(['not_auth'])->group(function () {
+    Route::get('/', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'auth'])->name('auth');
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/store_user', [AuthController::class, 'store_user'])->name('store_user');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/store_user', [AuthController::class, 'store_user'])->name('store_user');
+});
 
 // MIDDLEWARE AUTH
 Route::middleware(['auth_test'])->group(function () {
@@ -34,6 +37,9 @@ Route::middleware(['auth_test'])->group(function () {
     
         // DELETE ONE TASK
         Route::get('/{task}/delete', 'delete')->name('task.delete');
-    });
-    
+    }); 
+});
+
+Route::fallback(function () {
+    return view('errors.404');
 });

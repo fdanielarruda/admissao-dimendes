@@ -10,7 +10,7 @@
    <meta name="author" content="">
 
    <title>Dimendes</title>
-
+   
    <!-- Custom fonts for this template-->
    <link href="{{ asset('template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
    <link
@@ -20,6 +20,13 @@
    <!-- Custom styles for this template-->
    <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+   <style>
+      input {
+         font-size: 16px !important;
+      }
+   </style>
+
+   @notifyCss
 </head>
 
 <body class="bg-gradient-primary">
@@ -58,7 +65,7 @@
    </div>
 
    <!-- Bootstrap core JavaScript-->
-   <script src="{{ asset('template/vendor/jquery/jquery.min.js') }}"></script>
+   <script src="{{ asset('template/vendor/jquery/jquery.min.js') }}"></>
    <script src="{{ asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
    <!-- Core plugin JavaScript-->
@@ -78,6 +85,9 @@
 			element.addEventListener('change', removerClasseInvalida);
 		});
 	</script>
+
+   <x-notify::notify />
+   @notifyJs
 </body>
 
 </html>

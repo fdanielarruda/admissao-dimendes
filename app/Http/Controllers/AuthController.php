@@ -20,6 +20,8 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('task.index');
         } else {
+            notify()->error('Credenciais inválidas', 'Erro');
+            
             return redirect()->back();
         }
     }
@@ -40,6 +42,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        notify()->success('Cadastro realizado', 'Sucesso');
 
         return redirect()->route('login');
     }
