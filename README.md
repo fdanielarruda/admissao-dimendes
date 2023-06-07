@@ -1,6 +1,6 @@
-# Admissional Dimendes Tecnologia
+# DIMENDES
 
-Aplicação desenvolvida pra um exame admissional da dimendes tecnlogia. Foi utilizado nese projeto o framework Laravel (versão 9).
+Aplicação desenvolvida com o framework Laravel (versão 9).
 
 ## Requisitos
 - PHP 8 ou superior
