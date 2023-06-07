@@ -4,20 +4,25 @@ Aplicação desenvolvida com o framework Laravel (versão 9).
 
 ## Requisitos
 - PHP 8 ou superior
+- Composer
 
 ## Instalação
 
 Para utilizar o projeto realize os seguintes passos:
 
+Abra seu terminal de comandos e vá para uma pasta que queira que o projeto seja instalado. Nesse momento cole no terminal o seguinte comando:
+
 ```bash
 git clone https://github.com/fdanielarruda/admissao-dimendes
 ```
+
+Será criada uma pasta que conterá os arquivos do projeto. Entre nessa pasta. Para realizar essa ação você pode colar esse comando em seu terminal:
 
 ```bash
 cd admissao-dimendes
 ```
 
-Instalando as dependências necessárias do projeto:
+Os comandos a seguir devem ser feitos de forma sequencial, ou seja, um após o outro. Eles são responsáveis por instalar as dependências do projeto:
 
 ```bash
 composer install
@@ -70,4 +75,4 @@ METD.  URL                 AÇÃO
 
 ## O que fazer no sistema?
 
-Depois de se cadastrar e realizar o login você pode cadastrar quantas tarefas desejar! Além disso, você poderá editá-las e removê-las.
+Depois de criar sua conta e realizar o login você pode cadastrar quantas tarefas desejar! Além disso, você poderá editá-las e removê-las avontade.
