@@ -36,7 +36,7 @@ Route::middleware(['auth_test'])->group(function () {
         Route::put('/{task}', 'update')->name('task.update');
     
         // DELETE ONE TASK
-        Route::get('/{task}/delete', 'delete')->name('task.delete');
+        Route::delete('/{task}/delete', 'delete')->name('task.delete');
     }); 
 });
 

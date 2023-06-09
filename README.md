@@ -56,21 +56,22 @@ php artisan serve
 ## Rotas
 
 ```
-METD.  URL                 AÇÃO                 
+MÉTODO   URL                 AÇÃO                 
 
-[GET]  /                 | Login
-[GET]  /register         | Cadastro
-[GET]  /logout           | Sair
-[GET]  /task             | Lista de Tarefas
-[GET]  /task/create      | Cadastrar Tarefa
-[GET]  /task/:id/edit    | Editar Tarefa
-[GET]  /task/:id/delete  | Deletar Tarefa
+[GET]    /                 | Login
+[GET]    /register         | Cadastro
+[GET]    /logout           | Sair
+[GET]    /task             | Lista de Tarefas
+[GET]    /task/create      | Cadastrar Tarefa
+[GET]    /task/:id/edit    | Editar Tarefa
 
-[POST] /login            | Realizar login
-[POST] /store_user       | Cadastrar-se na aplicação
-[POST] /task/store       | Salvar Tarefa
+[POST]   /login            | Realizar login
+[POST]   /store_user       | Cadastrar-se na aplicação
+[POST]   /task/store       | Salvar Tarefa
 
-[PUT]  /task/:id         | Atualizar Tarefa
+[PUT]    /task/:id         | Atualizar Tarefa
+
+[DELETE] /task/:id/delete  | Deletar Tarefa
 ```
 
 ## O que fazer no sistema?

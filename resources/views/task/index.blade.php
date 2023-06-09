@@ -21,14 +21,19 @@
                   <td>{{ date('d/m/Y H:i:s', strtotime($task->created_at)) }}</td>
                   <td>
 							{{-- LINK FOR EDIT TASK --}}
-							<a class="btn btn-warning btn-sm" title="Editar" href="{{ route('task.edit', $task->id) }}">
+							<a class="btn btn-warning btn-sm" title="Editar" href="{{ route('task.edit', $task->id) }}" style="float: left;">
 								<i class="fas fa-fw fa-edit"></i>
 							</a>
 						
 							{{-- LINK FOR DELETE TASK --}}
-							<a class="btn btn-danger btn-sm" title="Deletar" href="{{ route('task.delete', $task->id) }}">
-								<i class="fas fa-fw fa-trash"></i>
-							</a>
+							<form action="{{ route('task.delete', $task->id) }}" method="POST" class="ml-2" style="float: left;">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        
+                        <button class="btn btn-danger btn-sm" title="Deletar" href="{{ route('task.delete', $task->id) }}">
+                           <i class="fas fa-fw fa-trash"></i>
+                        </button>
+                     </form>
                   </td>
                </tr>
             @endforeach
